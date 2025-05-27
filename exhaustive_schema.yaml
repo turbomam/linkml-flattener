@@ -1,0 +1,339 @@
+id: https://w3id.org/example/example_schema
+name: example_schema
+title: Example Schema Using Full SchemaDefinition Features
+description: A comprehensive LinkML schema exercising all slot ranges of the schema_definition class
+version: 1.0.0
+license: https://creativecommons.org/publicdomain/zero/1.0/
+default_prefix: ex
+default_range: string
+
+prefixes:
+  ex: https://example.org/example/
+  linkml: https://w3id.org/linkml/
+
+emit_prefixes:
+  - ex
+  - linkml
+
+created_by: ex:mark
+created_on: 2024-05-01T00:00:00
+last_updated_on: 2024-05-25T00:00:00
+modified_by: ex:jane
+
+contributors:
+  - ex:mark
+  - ex:jane
+
+annotations:
+  reviewed_by:
+    tag: reviewed_by
+    value: ex:qa_team
+
+extensions:
+  custom_property:
+    tag: custom_property
+    value: true
+
+alt_descriptions:
+  other:
+    description: A less formal description
+
+todos:
+  - Refactor this schema into modules
+notes:
+  - Draft reviewed by schema working group
+comments:
+  - Some fields are illustrative only
+
+keywords:
+  - example
+  - validation
+
+mappings:
+  - obo:OBI_0000011
+exact_mappings:
+  - obo:OBI_0000011
+close_mappings:
+  - obo:OBI_0000022
+related_mappings:
+  - obo:OBI_0000033
+narrow_mappings:
+  - obo:OBI_0000044
+broad_mappings:
+  - obo:OBI_0000055
+
+# Enumerations
+enums:
+  status_enum:
+    permissible_values:
+      ready:
+      draft:
+      deprecated:
+
+# Slots
+slots:
+  id:
+    range: uri
+  name:
+    range: string
+  status:
+    range: status_enum
+  has_identifier:
+    alias: identifier
+    asymmetric: false
+    designates_type: false
+    identifier: false
+    inherited: false
+    irreflexive: false
+    is_class_field: false
+    key: false
+    list_elements_ordered: false
+    list_elements_unique: false
+    locally_reflexive: false
+    name: has_identifier
+    readonly: false
+    reflexive: false
+    role: identifier for object
+    shared: false
+    singular_name: identifier
+    slot_uri: ex:has_identifier
+    symmetric: false
+    transitive: false
+    range: string
+    pattern: "^[a-z_]+$"
+    structured_pattern:
+      syntax: "^[a-z_]+$"
+      interpolated: false
+    exact_cardinality: 1
+    minimum_cardinality: 1
+    maximum_cardinality: 1
+    abstract: false
+    mixin: false
+    id_prefixes:
+      - ex
+    id_prefixes_are_closed: true
+    conforms_to: https://example.org/spec
+    annotations:
+      reviewed_by:
+        tag: reviewed_by
+        value: ex:curator1
+    extensions:
+      custom_flag:
+        tag: custom_flag
+        value: true
+    description: Indicates detailed status
+    title: Status Detail
+    deprecated: Use `status_level` instead
+    todos:
+      - Harmonize with `status_level`
+    notes:
+      - Used in legacy systems
+    comments:
+      - This is an illustrative example
+    examples:
+      - value: active
+        description: A valid active state
+    in_subset:
+      - core_fields
+    source: ex:controlled_vocab
+    in_language: en
+    see_also:
+      - skos:altLabel
+    deprecated_element_has_exact_replacement: ex:status_level
+    deprecated_element_has_possible_replacement: ex:status_type
+    mappings:
+      - obo:NCIT_C25688
+    exact_mappings:
+      - obo:NCIT_C25688
+    close_mappings:
+      - obo:NCIT_C12345
+    related_mappings:
+      - obo:NCIT_C54321
+    narrow_mappings:
+      - obo:NCIT_C98765
+    broad_mappings:
+      - obo:NCIT_C11111
+    created_by: ex:mark
+    contributors:
+      - ex:mark
+      - ex:jane
+    created_on: 2024-05-01T00:00:00
+    last_updated_on: 2024-05-25T00:00:00
+    modified_by: ex:jane
+    status: obo:IAO_0000123
+    rank: 5
+    categories:
+      - ex:metadata
+    keywords:
+      - status
+      - trait
+    string_serialization: "{status_code}-{label}"
+    none_of:
+      - range: integer
+    aliases:
+      - status_detail
+    structured_aliases:
+      - literal_form: has_identifier
+        predicate: BROAD_SYNONYM
+        categories:
+          - ex:abbreviation
+          - ex:terminology
+        contexts:
+          - http://purl.obolibrary.org/obo/ncit.owl
+          - http://example.org/context/iso-standard
+    alt_descriptions:
+      other:
+        description: A less formal description
+    local_names:
+      xyz:
+        local_name_source: xyz
+        local_name_value: xyz
+      nnn:
+        local_name_source: nnn
+        local_name_value: nnn
+
+
+    #    range_expression: "'active' or 'inactive'"
+    #    enum_range: status_enum
+    #    unit: ex:status_unit
+    #    value_presence: REQUIRED
+    #    equals_string: "active"
+    #    equals_string_in:
+    #      - "active"
+    #      - "inactive"
+    #    equals_number: 1
+    #    equals_expression: "1 if status == 'active' else 0"
+    #    has_member:
+    #      range: string
+    #    all_members:
+    #      range: string
+    #    exactly_one_of:
+    #      - range: string
+    #      - range: integer
+    #    any_of:
+    #      - range: string
+    #    all_of:
+    #      - range: string
+    #    implements:
+    #      - ex:trait_model
+    #    instantiates:
+    #      - ex:core_trait
+    #    values_from:
+    #      - ex:status_enum
+    #    is_a: definition_slot
+    #    mixins:
+    #      - shared_identifier_slot
+    #    domain: Person
+    #    inverse: identified_by
+    #    subproperty_of: has_attribute
+    #    ifabsent: generate_from_context
+    #    transitive_form_of: located_in
+    #    reflexive_transitive_form_of: located_near
+    #    relational_role: part_of
+    #    slot_group: identifiers
+    #    path_rule: ".id"
+    #    disjoint_with:
+    #      - obsolete_identifier
+    #    union_of:
+    #      - identifier
+    #      - accession
+    #    apply_to:
+    #      - Person
+    #      - Biosample
+    #    type_mappings:
+    #      - type1
+    #      - type2
+
+# Classes
+classes:
+  Example:
+    description: Example class
+    slots:
+      - id
+      - name
+      - status
+    in_subset:
+      - core_subset
+
+# Subsets
+subsets:
+  core_subset:
+    description: Core fields subset
+
+# Settings
+settings:
+  strict_mode: true
+
+id_prefixes:
+  - ex
+  - linkml
+
+id_prefixes_are_closed: true
+
+slot_names_unique: true
+
+rank: 1
+conforms_to: ex:standard1
+
+see_also:
+  - ex:related_doc
+
+source: ex:authoritative_source
+
+status: ex:ready
+
+categories:
+  - ex:validation
+
+deprecated_element_has_exact_replacement: obo:OBI_9999999
+
+deprecated_element_has_possible_replacement: obo:OBI_8888888
+
+structured_aliases:
+  - literal_form: example_schema
+    predicate: BROAD_SYNONYM
+    categories:
+      - ex:abbreviation
+      - ex:terminology
+    contexts:
+      - http://purl.obolibrary.org/obo/ncit.owl
+      - http://example.org/context/iso-standard
+
+examples:
+  - description: xyz
+    value: 123
+    object:
+      key1: value
+      key2: value
+
+#default_curi_maps:
+#  - semweb_context
+
+#implements:
+#  - ex:reusable_model
+
+#instantiates:
+#  - ex:domain_model
+
+## Types
+#types:
+#  string:
+#    base: str
+#  uri:
+#    base: uri
+
+## Enum bindings
+#bindings:
+#  status_enum_binding:
+#    enum: status_enum
+#    slot: status
+
+## READ ONLY
+#definition_uri: ex:example_schema
+#from_schema: https://w3id.org/example/example_schema
+#generation_date: 2024-05-27T12:00:00
+#imported_from: https://external.org/imported_schema
+#metamodel_version: 1.7.0
+#source_file: example_schema.yaml
+#source_file_date: 2024-05-27T00:00:00
+#source_file_size: 1234
