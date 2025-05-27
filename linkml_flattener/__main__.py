@@ -1,5 +1,4 @@
 from importlib.resources import files, as_file
-
 from linkml_runtime.utils.schemaview import SchemaView
 
 
@@ -9,6 +8,10 @@ def load_runtime_metamodel() -> SchemaView:
         return SchemaView(path)
 
 
-sv = load_runtime_metamodel()
+def main():
+    sv = load_runtime_metamodel()
+    print(sv.get_class("slot_definition"))
 
-print(sv.get_class("slot_definition"))
+
+if __name__ == "__main__":
+    main()
